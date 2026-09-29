@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="TransporCar: soluciones de transporte y logística para mover tu negocio con confianza.">
+  <title>TransporCar | Movemos lo que importa</title>
+  <style>
+    :root {
+      --navy: #111827;
+      --blue: #2563a6;
+      --orange: #3978b8;
+      --ink: #202b38;
+      --muted: #687584;
+      --pale: #f1f4f7;
+      --white: #fff;
+      --shadow: 0 18px 48px rgba(16, 47, 80, .12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 82px; }
+    body { margin: 0; color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 44px)); margin-inline: auto; }
+    .topbar { background: var(--navy); color: #dce9f2; font-size: .82rem; }
+    .topbar-inner { min-height: 36px; display: flex; justify-content: space-between; align-items: center; gap: 18px; }
+    .topbar p { margin: 0; }
+    .topbar a { color: white; font-weight: 650; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.96); border-bottom: 1px solid #e8eef2; backdrop-filter: blur(12px); }
+    .nav { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-size: 1.25rem; font-weight: 850; letter-spacing: -.045em; color: var(--navy); }
+    .brand-mark { width: 39px; height: 39px; display: grid; place-items: center; border-radius: 12px; background: var(--orange); color: white; }
+    .brand-mark svg { width: 24px; height: 24px; }
+    .brand span em { color: var(--orange); font-style: normal; }
+    .nav-links { display: flex; align-items: center; gap: 32px; font-size: .91rem; font-weight: 650; color: #4c6173; }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-cta, .button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 0; border-radius: 8px; padding: 12px 19px; background: var(--orange); color: white; font: inherit; font-weight: 750; cursor: pointer; transition: transform .2s, background .2s; }
+    .nav-cta:hover, .button:hover { background: #285f96; transform: translateY(-2px); }
+    .hero { position: relative; isolation: isolate; overflow: hidden; min-height: 570px; display: flex; align-items: center; background: var(--navy); color: white; }
+    .hero { background: #111827; }
+    .hero-content { width: min(640px, 68%); padding-block: 88px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--orange); font-weight: 800; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 26px; height: 2px; background: currentColor; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin: 20px 0 18px; max-width: 650px; font-size: clamp(2.8rem, 6vw, 4.8rem); line-height: 1.04; letter-spacing: -.055em; }
+    h1 span { color: var(--orange); }
+    .hero-copy { max-width: 500px; margin-bottom: 30px; color: #d3e1ec; font-size: 1.08rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
+    .button-outline { display: inline-flex; align-items: center; gap: 9px; padding: 11px 5px; color: white; font-weight: 700; }
+    .button-outline:hover { color: #b7d5f3; }
+    .button svg, .button-outline svg { width: 18px; height: 18px; }
+    .proof { display: flex; gap: 28px; margin-top: 51px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.2); color: #c7d8e5; font-size: .83rem; }
+    .proof strong { display: block; color: white; font-size: 1.23rem; }
+    section { padding: 92px 0; }
+    .section-heading { max-width: 650px; margin-bottom: 42px; }
+    .section-heading h2 { margin: 12px 0 13px; color: var(--navy); font-size: clamp(2rem, 4vw, 3rem); line-height: 1.12; letter-spacing: -.045em; }
+    .section-heading p { margin-bottom: 0; color: var(--muted); }
+    .about-grid { display: grid; grid-template-columns: minmax(0, 760px); justify-content: center; }
+    .about-copy .section-heading { margin-bottom: 22px; }
+    .about-copy > p { color: var(--muted); }
+    .values { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 22px; margin-top: 28px; }
+    .value { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--navy); font-size: .92rem; }
+    .check { width: 24px; height: 24px; display: grid; place-items: center; flex: 0 0 24px; border-radius: 50%; background: #e6eef7; color: var(--orange); font-size: .78rem; font-weight: 900; }
+    .services { background: var(--pale); }
+    .services .section-heading { margin-inline: auto; text-align: center; }
+    .services .eyebrow { justify-content: center; }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .service-card { padding: 29px 27px 27px; border: 1px solid #e3ebf0; border-radius: 13px; background: white; transition: transform .2s, box-shadow .2s; }
+    .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .service-icon { width: 52px; height: 52px; display: grid; place-items: center; margin-bottom: 24px; border-radius: 13px; background: #e8eef5; color: var(--orange); }
+    .service-icon.blue { background: #e9f3fa; color: var(--blue); }
+    .service-icon svg { width: 25px; height: 25px; }
+    .service-card h3 { margin-bottom: 9px; color: var(--navy); font-size: 1.17rem; }
+    .service-card p { margin-bottom: 0; color: var(--muted); font-size: .92rem; }
+    .contact { padding: 92px 0; background: var(--navy); color: white; }
+    .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: start; }
+    .contact .section-heading h2 { color: white; }
+    .contact .section-heading p { color: #c1d2df; }
+    .contact-info { display: grid; gap: 19px; margin-top: 32px; }
+    .contact-line { display: flex; align-items: center; gap: 13px; color: #d9e5ed; font-size: .93rem; }
+    .contact-line .service-icon { width: 42px; height: 42px; margin: 0; flex: 0 0 42px; }
+    .form-card { padding: 34px; border-radius: 15px; background: white; color: var(--ink); box-shadow: 0 25px 70px rgba(0,0,0,.2); }
+    .form-card h3 { margin-bottom: 5px; color: var(--navy); font-size: 1.35rem; }
+    .form-card > p { margin-bottom: 24px; color: var(--muted); font-size: .9rem; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
+    .field { display: grid; gap: 7px; }
+    .field.full { grid-column: 1 / -1; }
+    label { color: #375166; font-size: .83rem; font-weight: 700; }
+    input, select, textarea { width: 100%; border: 1px solid #dce5eb; border-radius: 7px; padding: 12px 13px; outline: none; color: var(--ink); background: #fbfdfe; font: inherit; font-size: .9rem; }
+    input:focus, select:focus, textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(29,93,145,.1); }
+    textarea { min-height: 110px; resize: vertical; }
+    .form-card .button { margin-top: 19px; width: 100%; }
+    .form-note { margin: 12px 0 0 !important; text-align: center; font-size: .75rem !important; }
+    footer { padding: 25px 0; background: #0b233c; color: #b8c9d6; font-size: .83rem; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer-inner p { margin: 0; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a:hover { color: white; }
+    @media (max-width: 800px) {
+      .nav { height: 68px; }
+      .nav-links { gap: 17px; }
+      .nav-links a { font-size: .84rem; }
+      .nav-cta { padding: 10px 12px; font-size: .85rem; }
+      .hero-content { width: min(640px, 85%); }
+      .contact-grid { grid-template-columns: 1fr; gap: 42px; }
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { gap: 24px; }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(100% - 32px, 1120px); }
+      .topbar-inner { justify-content: center; }
+      .topbar-inner p:last-child { display: none; }
+      .nav { height: auto; min-height: 68px; flex-wrap: wrap; padding-block: 12px; gap: 10px; }
+      .brand { font-size: 1.1rem; }
+      .brand-mark { width: 35px; height: 35px; }
+      .nav-links { order: 3; width: 100%; justify-content: space-between; padding: 7px 0 2px; }
+      .nav-cta { margin-left: auto; }
+      .hero { min-height: 590px; }
+      .hero-content { width: 100%; padding-block: 70px; }
+      h1 { font-size: clamp(2.65rem, 13vw, 4rem); }
+      .proof { gap: 18px; }
+      .proof > div { flex: 1; }
+      section, .contact { padding: 69px 0; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service-card { padding: 24px; }
+      .values { gap: 13px; }
+      .value { font-size: .84rem; }
+      .form-card { padding: 24px 19px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container nav" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="TransporCar, inicio">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 7.5h11v9H3zM14 10h4l3 3v3.5h-7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="7" cy="18" r="2" fill="currentColor"/><circle cx="18" cy="18" r="2" fill="currentColor"/></svg></span>
+        <span>Transpor<em>Car</em></span>
+      </a>
+      <div class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#servicios">Servicios</a>
+      </div>
+      <a class="nav-cta" href="#contacto">Contáctanos <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">Tu aliado en el camino</span>
+          <h1>Movemos lo que <span>importa.</span></h1>
+          <p class="hero-copy">Conectamos tu negocio con sus destinos. Transporte confiable, atención cercana y soluciones logísticas pensadas para ti.</p>
+          <div class="hero-actions">
+            <a class="button" href="#contacto">Solicitar información <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="button-outline" href="#servicios">Conoce nuestros servicios <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="proof">
+            <div><strong>Confiable</strong>En cada entrega</div>
+            <div><strong>A tu medida</strong>Soluciones flexibles</div>
+            <div><strong>Siempre cerca</strong>Atención humana</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <div class="section-heading">
+            <span class="eyebrow">Quiénes somos</span>
+            <h2>Tu carga está en buenas manos.</h2>
+            <p>Somos un equipo comprometido con hacer que el transporte sea sencillo y seguro para cada cliente.</p>
+          </div>
+          <p>En TransporCar unimos experiencia, planificación y un trato cercano para que tus productos lleguen a su destino. Nos adaptamos a las necesidades de tu operación, cuidando cada detalle durante el recorrido.</p>
+          <div class="values">
+            <div class="value"><span class="check">✓</span>Compromiso en cada envío</div>
+            <div class="value"><span class="check">✓</span>Comunicación transparente</div>
+            <div class="value"><span class="check">✓</span>Atención personalizada</div>
+            <div class="value"><span class="check">✓</span>Soluciones flexibles</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="servicios">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Lo que hacemos</span>
+          <h2>Servicios que se mueven contigo.</h2>
+          <p>Una solución para cada necesidad logística, con el respaldo de un equipo que está pendiente de ti.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="7" cy="19" r="2" stroke="currentColor" stroke-width="1.8"/><circle cx="18" cy="19" r="2" stroke="currentColor" stroke-width="1.8"/></svg></div>
+            <h3>Transporte de carga</h3><p>Movemos tus mercancías de forma segura, con opciones que se ajustan al tamaño y ritmo de tu operación.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon blue"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20V8l8-5 8 5v12M8 20v-6h8v6M2 20h20M8 9h.01M12 9h.01M16 9h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Distribución</h3><p>Coordinamos entregas a múltiples destinos para que tus productos lleguen donde tus clientes los esperan.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 8.5 12 4l9 4.5v11l-9 4-9-4zM3 8.5l9 4.5m0 0 9-4.5M12 13v10M7.5 6.3l9 4.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+            <h3>Logística integral</h3><p>Te apoyamos con la planificación y coordinación de cada etapa para que tu cadena de suministro avance.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="container contact-grid">
+        <div>
+          <div class="section-heading">
+            <span class="eyebrow">Hablemos de tu carga</span>
+            <h2>Cuéntanos qué necesitas.</h2>
+            <p>Déjanos los detalles de tu solicitud. Nuestro equipo estará listo para ayudarte a encontrar la mejor opción.</p>
+          </div>
+          <div class="contact-info">
+            <div class="contact-line"><span class="service-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4zM4 7l8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>info@transporcar.com</div>
+            <div class="contact-line"><span class="service-icon blue"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3h10v18l-5-3-5 3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 8h4m-4 4h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>Atención personalizada para cada envío</div>
+          </div>
+        </div>
+        <form class="form-card" action="#" method="get">
+          <h3>Solicita información</h3>
+          <p>Completa el formulario y cuéntanos un poco sobre tu proyecto.</p>
+          <div class="form-grid">
+            <div class="field full"><label for="nombre">Nombre completo</label><input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre y apellido"></div>
+            <div class="field full"><label for="correo">Correo para contactarte</label><input id="correo" name="correo" type="email" autocomplete="email" placeholder="nombre@ejemplo.com"></div>
+            <div class="field full"><label for="peticion">Petición</label><textarea id="peticion" name="peticion" placeholder="Describe qué necesitas..."></textarea></div>
+          </div>
+          <button class="button" type="button">Enviar solicitud <span aria-hidden="true">→</span></button>
+          <p class="form-note">Este formulario es una muestra y no envía información.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="brand" href="#inicio" style="color:white"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 7.5h11v9H3zM14 10h4l3 3v3.5h-7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="7" cy="18" r="2" fill="currentColor"/><circle cx="18" cy="18" r="2" fill="currentColor"/></svg></span><span>Transpor<em>Car</em></span></a>
+      <p>© 2026 TransporCar. Todos los derechos reservados.</p>
+      <div class="footer-links"><a href="#nosotros">Nosotros</a><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a></div>
+    </div>
+  </footer>
+</body>
+</html>
